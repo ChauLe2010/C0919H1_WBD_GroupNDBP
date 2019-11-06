@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vẽ Hình Chữ Nhật Bằng Canvas</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="1000" height="500" style="border: 1px solid"></canvas>
+    <script>
+        let c = document.getElementById('myCanvas');
+        let ctx = c.getContext('2d');
+        ctx.beginPath();
+        ctx.lineWidth = '10';
+        ctx.rect(200,100,600,300);
+        ctx.strokeStyle = "red"
+        ctx.stroke();
+
+        // Green rectangle
+        ctx.beginPath();
+        ctx.rect(350,180,300,150)
+        ctx.fillStyle = 'green';
+        ctx.fill();
+
+        // Blue rectangle
+        ctx.beginPath();
+        ctx.arc(500,250,50,0,2*Math.PI)
+        ctx.fillStyle = 'blue'
+        ctx.fill();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai-5_Tim-so-nguyen-to-max-trong-mang</title>
+</head>
+<body>
+    <style>
+        h1 {
+            color: red;
+            position: relative;
+            top: 2px;
+            left: 150px;
+        }
+        input {
+            position: relative;
+            width: 290px;
+            height: 25px;
+            top: 0px;
+            left: 20px;
+            border-width: 3px;
+            border-color: #18ff30;
+            background-color: #d0eaff;
+            font-size: 20px;
+            color: #ff1a24;
+
+        }
+        textarea {
+            position: relative;
+            width: 600px;
+            height: 100px;
+            top: 10px;
+            left: 20px;
+            border-width: 3px;
+            border-color: #18ff30;
+            background-color: #d0eaff;
+            color: #1423ff;
+            font-size: 20px;
+        }
+        button {
+            position: relative;
+            width: 100px;
+            height: 25px;
+            top: 0px;
+            left: 20px;
+            border-width: 3px;
+            border-color: #18ff30;
+            background-color: #d0eaff;
+            border-radius: 15px;
+            font-size: 15px;
+            color: #2922ff;
+        }
+        button:hover {
+            background-color: #fffd22;
+            color: red;
+
+        }
+
+
+    </style>
+    <h1>Display max Prime number</h1>
+    <input id="inp1" type="text" placeholder="Add number to array">
+    <button type="button" onclick="addPrime()">Add</button>
+    <button type="button" onclick="findMax()">Display</button>
+    <button type="button" onclick="resetbtn()">Reset</button>
+    <br>
+    <textarea id="display1" placeholder="Add number to array"></textarea>
+    <br>
+    <textarea id="display2" placeholder="Your result here..."></textarea>
+
+    <script>
+        let arr = [];
+        function addPrime() {
+            let arrNum = [];
+            let number = document.getElementById('inp1').value;
+            number =  parseFloat(number);
+            if (Number.isNaN(number)) {
+                document.getElementById('display1').innerText = "Array is not a number"
+                document.getElementById('inp1').value = "";
+            } else {
+                arrNum.push(number);
+                let n = 0;
+                for (let i = 0; i < arrNum.length; i++) {
+                    n += arrNum[i];
+                    arr.push(n);
+                }
+                document.getElementById('display1').innerHTML = "Your array is: [ " + arr + " ]";
+                document.getElementById('inp1').value = "";
+            }
+        }
+
+        function findMax() {
+            for ( let i = 0; i < arr.length; i++ ) {
+                let max = arr[0];
+                if (arr[i] > max ) {
+                        max = arr[i];
+            }
+                    document.getElementById('display2').innerHTML = "Max number in array is: " + max;
+            }
+        }
+        function resetbtn() {
+            arr = [];
+            document.getElementById('inp1').value = "";
+            document.getElementById('display1').innerHTML = "";
+            document.getElementById('display2').innerHTML = "";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính tổng các số lẻ của mảng</title>
+    <style type="text/css">
+        h1 {
+            color: red;
+            position: relative;
+            left: 300px;
+        }
+        input {
+            position: relative;
+            top: 5px;
+            left: 15px;
+            width: 690px;
+            height: 20px;
+            border-width: 3px;
+            border-color: #1616ff;
+        }
+        button {
+            position: relative;
+            width: 100px;
+            height: 30px;
+            left: 20px;
+            top: 6px;
+            border-color: #1616ff;
+            border-width: 3px;
+            background-color: aquamarine;
+            color: #ff1a24;
+            font-size: 15px;
+        }
+        button:hover {
+            background-color: yellow;
+            background-color: #1616ff;
+            color: #ff1a24;
+        }
+        textarea {
+            position: relative;
+            width: 1000px;
+            height: 200px;
+            left: 15px;
+            top: 5px;
+            border-width: 5px;
+            border-color: #30ff24;
+            font-size: 20px;
+            font-style: italic;
+            color: #1423ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sum of Odd number in Array</h1>
+    <input id = "inp" type="text"  placeholder="Enter your number to add in Array">
+    <button onclick="addNumber()">Add</button>
+    <button onclick="sumOfOdd()">Sum</button>
+    <button onclick="resetNumber()">Reset</button>
+    <br/> <br/>
+    <textarea id="displayResult" placeholder="Please add number"></textarea>
+    <br/>
+    <textarea id="display2" placeholder="Your result here"></textarea>
+
+    <script>
+            let b = [];
+        function addNumber() {
+            let arr = []
+            let number = parseFloat(document.getElementById('inp').value)
+            if (Number.isNaN(number)) {
+                document.getElementById('displayResult').innerHTML = "Array is not a number";
+                document.getElementById('inp').value = null;
+            } else {
+                arr.push(number);
+                for (let i = 0; i < arr.length; i++){
+                b.push(arr[i]);
+                };
+                document.getElementById('displayResult').innerHTML = "Your array is: [ "+b+" ]";
+                document.getElementById('inp').value = null;
+            };
+        };
+        
+        function sumOfOdd() {
+            let sum = 0;
+            for ( let i = 0; i < b.length; i++ ) {
+                if ( b[i] % 2 == 1 ) {
+                    sum += b[i];
+                }
+            }
+            document.getElementById('display2').innerHTML = "Sum of odd number in Array is:  "+sum;
+        }
+
+        function resetNumber() {
+            b = [];
+            document.getElementById('displayResult').innerHTML = "";
+            document.getElementById('display2').innerHTML = "";
+        }
+
+    </script>
+
+</body>
+</html>

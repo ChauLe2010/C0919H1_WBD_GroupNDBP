@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị 20 số nguyên tố đầu tiên</title>
+</head>
+    <style type="text/css">
+        body {
+            position: absolute;
+            width: 400px;
+            height: 1200px;
+            background-image: url("image.png");
+            background-repeat: no-repeat;
+            left: 500px;
+            top: 60px;
+
+        }
+        h1  {
+            color: red;
+            position: relative;
+            left: 70px;
+        }
+        input {
+            position: relative;
+            width: 290px;
+            height: 20px;
+            background-color: #fffbf4;
+            border-width: 2px;
+            border-color: #18ff30;
+            color: #1616ff;
+            font-size: 12px;
+        }
+       #input0 {
+           position: relative;
+           top: 0px;
+           left: 20px;
+           width: 310px;
+           height: 35px;
+       }
+        button {
+            position: relative;
+            width: 100px;
+            height: 30px;
+            border-width: 5px;
+            border-radius: 20px;
+            background-color: #f4ff10;
+            color: red;
+            border-color: #18ff30;
+            left: 20px ;
+            top: 5px;
+
+        }
+        button:hover {
+            background-color: #ff1a24;
+            color: aquamarine;
+        }
+        textarea {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            top: 10px;
+            left: 20px;
+            border-width: 5px;
+            border-color: #18ff30;
+            color: #ff1f2d;
+            font-size: 15px;
+            font-style: italic;
+        }
+        #display2 {
+            position: relative;
+            left: 20px;
+        }
+        #display3 {
+            position: relative;
+            left: 20px;
+        }
+
+    </style>
+<body>
+        <h1>Prime Number</h1>
+        <input id="input0" type="text" placeholder="How many Prime number do you want to display...">
+        <button type="button" onclick="primeNum()">Display</button>
+        <button type="button" onclick="findMaxPrime()">Find Max</button>
+        <button type="button" onclick="reset()">Reset</button>
+        <div id="display1"> <textarea id="display" placeholder="This is screen to display your result!"></textarea></div>
+        <br/>
+        <div> <input id="display2" placeholder="Total Prime number:"></div>
+        <br/>
+        <div> <input id="display3" placeholder="Max Prime number..."></div>
+    <script>
+        function checkPrime(N) {
+            if ( N <2 ) {
+                return false;
+            } else if ( N >= 2 ) {
+                for ( let i = 2; i < N ; i++ ) {
+                    if (N % i == 0 ) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+        let arr = [];
+        function primeNum() {
+            let count = 0;
+            let numberDisplay = document.getElementById('input0').value;
+            for ( let i = 0; i < numberDisplay; i++ ) {
+                if ( checkPrime( i )) {
+                    arr.push(i);
+                    count++;
+                }
+            }
+            var a = arr.join( ",  " )
+            document.getElementById('display').innerHTML = "Your Prime Number is: "+a;
+            document.getElementById('display2').value = "Total have "+count+" Prime number";
+            document.getElementById('input').value = "";
+        }
+        function findMaxPrime() {
+            let max = arr[0];
+            for ( let j = 2; j < arr.length; j++ ) {
+                if (arr[j] > max) {
+                    max = arr[j];
+                }
+            }
+            document.getElementById('display3').innerHTML = " Max Prime number is: " + max;
+        }
+        function reset() {
+            arr = [];
+            document.getElementById('input0').value = "";
+            document.getElementById('display').innerText = "";
+            document.getElementById('display2').value = "";
+        }
+
+    </script>
+</body>
+</html>
